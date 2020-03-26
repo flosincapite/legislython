@@ -37,10 +37,3 @@ def index():
 
   else:
     return flask.render_template('index.html', form=form)
-
-
-@the_app.route('/create_csv', methods=['POST'])
-def create_csv():
-  firstdate = flask.request.form['firstdate']
-  lastdate = flask.request.form['lastdate']
-  return f"<script>alert('{firstdate}, {lastdate}');</script>"
