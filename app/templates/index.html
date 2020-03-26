@@ -1,0 +1,31 @@
+<html>
+  <head><title>quis custodiet ipsos/ custodes?</title></head>
+  <body>
+    <!-- form action="{{ url_for('create_csv') }}" method="post" -->
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <script>alert('{{ message }}');</script>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <form action="" method="post">
+      {{ form.hidden_tag() }}
+      <p>
+        {{ form.firstdate.label }}
+        {{ form.firstdate(size=40, placeholder="YYYYMMDD, e.g. March 23, 1988 is 19880323") }}
+        {% for error in form.firstdate.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+      </p>
+      <p>
+        {{ form.lastdate.label }}
+        {{ form.lastdate(size=40, placeholder="YYYYMMDD, e.g. March 23, 1988 is 19880323") }}
+        {% for error in form.lastdate.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+      </p>
+      <p>{{ form.submit() }}</p>
+    </form>
+  </body>
+</html>

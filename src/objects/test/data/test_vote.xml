@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><roll_call_vote>
+<congress>110</congress>
+<session>1</session>
+<congress_year>2007</congress_year>
+<vote_number>442</vote_number>
+<vote_date>December 18, 2007,  11:00 PM</vote_date>
+<vote_question_text>On the Nomination PN768</vote_question_text>
+<vote_document_text>John Daniel Tinder, of Indiana, to be United States Circuit Judge for the Seventh Circuit</vote_document_text>
+<vote_result_text>Nomination Confirmed (93-0)</vote_result_text>
+<question>On the Nomination</question>
+<vote_title>Confirmation John Daniel Tinder, of Indiana, to be U.S. Circuit Judge</vote_title>
+<majority_requirement>1/2</majority_requirement>
+<vote_result>Nomination Confirmed</vote_result>
+<document>
+<document_type>PN</document_type>
+<document_number>768</document_number>
+<document_name>PN768</document_name>
+<document_title>John Daniel Tinder, of Indiana, to be United States Circuit Judge for the Seventh Circuit</document_title><document_short_title/>
+</document>
+<amendment>
+<amendment_number/>
+<amendment_to_amendment_number/>
+<amendment_to_document_number/>
+<amendment_to_document_short_title/>
+<amendment_purpose>No Statement of Purpose on File.</amendment_purpose>
+</amendment>
+<count>
+<yeas>93</yeas>
+<nays>0</nays>
+<present/>
+<absent>7</absent>
+</count>
+<tie_breaker>
+<by_whom/>
+<tie_breaker_vote/>
+</tie_breaker>
+<members>
+<member>
+<member_full>Akaka (D-HI)</member_full>
+<last_name>Akaka</last_name>
+<first_name>Daniel</first_name>
+<party>D</party>
+<state>HI</state>
+<vote_cast>Yea</vote_cast>
+<lis_member_id>S213</lis_member_id>
+</member>
+<member>
+<member_full>Alexander (R-TN)</member_full>
+<last_name>Alexander</last_name>
+<first_name>Lamar</first_name>
+<party>R</party>
+<state>TN</state>
+<vote_cast>Yea</vote_cast>
+<lis_member_id>S289</lis_member_id>
+</member>
+</members>
+</roll_call_vote>
