@@ -8,7 +8,7 @@ from app import forms
 from src import generate_csv
 
 
-@the_app.route('/')
+@the_app.route('/', methods=['GET', 'POST'])
 @the_app.route('/index', methods=['GET', 'POST'])
 def index():
   form = forms.CsvForm()
