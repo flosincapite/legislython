@@ -29,7 +29,6 @@ def csv_rows(first_date, last_date, roll_dir=None, vote_dir=None):
         vote.congress, vote.session, vote.vote_number,
         datetime.datetime.strptime(vote.vote_date, '%B %d, %Y,  %I:%M %p'),
         f'{vote.question}: {vote.vote_title}')
-    print(vote.vote_date)
     votes.add(vote_tuple)
     for member in vote.members:
       member_tuple = (

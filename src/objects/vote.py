@@ -1,3 +1,5 @@
+import logging
+
 from xml.etree import ElementTree
 
 from src.objects import member
@@ -14,7 +16,6 @@ class Document(object):
       try:
         setattr(self, '_' + field, xml_tree.find(field).text)
       except AttributeError:
-        print(f'No field {field}.')
         setattr(self, '_' + field, '')
 
   @property
@@ -70,7 +71,6 @@ class Amendment(object):
       try:
         setattr(self, '_' + field, xml_tree.find(field).text)
       except AttributeError:
-        print(f'No field {field}.')
         setattr(self, '_' + field, '')
 
   @property

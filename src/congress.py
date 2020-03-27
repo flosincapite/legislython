@@ -1,6 +1,9 @@
+import logging
+
+
 def congress_range(congress_1, congress_2):
   while congress_1 < congress_2:
-    print(congress_1)
+    logging.debug(congress_1)
     yield congress_1
     congress_1 = congress_1 + 1
 
@@ -51,9 +54,7 @@ class Congress(object):
     return Congress(cong, sess)
 
   def __iadd__(self, increment):
-    print('Called iadd')
     for _ in range(increment):
-      print('iadd iterating')
       if self.session == 1:
         self._session = 2
       else:
