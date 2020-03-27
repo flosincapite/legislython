@@ -3,6 +3,8 @@ import datetime
 import flask
 import io
 
+from werkzeug import FileWrapper
+
 from app import the_app
 from app import forms
 from src import generate_csv
@@ -30,7 +32,7 @@ def index():
       bytes_buffer.write(string_buffer.getvalue().encode('utf8'))
       bytes_buffer.seek(0)
       return flask.send_file(
-          bytes_buffer,
+          FileWrapper(bytes_buffer),
           as_attachment=True,
           attachment_filename='senate_votes.csv',
           mimetype='text/csv')
