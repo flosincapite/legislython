@@ -4,6 +4,8 @@ API for viewing roll calls and votes in the United States Congress. This API
 currently only supports Senate data (as provided by [senate.gov](https://senate.gov)); support for
 Congress is forthcoming.
 
+You can try out the service [here](https://senatevotes.gq).
+
 # Usage
 
 ## As a Library
