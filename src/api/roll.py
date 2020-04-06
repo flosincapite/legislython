@@ -8,8 +8,20 @@ from src.objects import roll
 
 
 def rolls_for_range(
-    first_congress=None, last_congress=None,
-    directory=None):
+    first_congress=None, last_congress=None, directory=None):
+  """Generates Rolls within the provided date range.
+
+  Rolls will be generated for all congresses in the closed interval
+  [first_congress, last_congress].
+  If directory is provided, this method will use it as a local cache to avoid
+  making redundant HTTP requests for rolls.
+
+  Args:
+    first_congress: Congress object (src/congress.py)
+    last_congress : Congress object
+    roll_dir: local directory; rolls will be cached here if not None
+    vote_dir: local directory; votes will be cached here if not None
+  """
   if first_congress is None:
     first_congress = congress.Congress(101, 1)
   if last_congress is None:

@@ -43,6 +43,19 @@ def _votes_for_roll(
 
 def votes_for_range(
     first_date, last_date, roll_dir=None, vote_dir=None):
+  """Generates Votes within the provided date range.
+
+  Votes will be generated for the half-open interval [first_date, last_date).
+  If roll_dir is provided, this method will use the relevant directory as a
+  local cache to avoid making redundant HTTP requests for rolls. Likewise
+  vote_dir and votes.
+
+  Args:
+    first_date: datetime object
+    last_date: datetime object
+    roll_dir: local directory; rolls will be cached here if not None
+    vote_dir: local directory; votes will be cached here if not None
+  """
   assert(first_date < last_date)
 
   # Determines congresses for the relevant years.
