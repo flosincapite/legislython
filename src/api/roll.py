@@ -7,7 +7,7 @@ from src import utils
 from src.objects import roll
 
 
-def get_rolls(
+def rolls_for_range(
     first_congress=None, last_congress=None,
     directory=None):
   if first_congress is None:

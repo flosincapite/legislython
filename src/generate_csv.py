@@ -1,6 +1,6 @@
 import datetime
 
-from src.api import vote as vote_api
+from src import api
 
 
 def _normalize_vote(vote):
@@ -23,7 +23,7 @@ def csv_rows(first_date, last_date, roll_dir=None, vote_dir=None):
 
   d = {}
   votes = set()
-  for vote in vote_api.votes_for_range(
+  for vote in api.votes_for_range(
       first_date, last_date, roll_dir, vote_dir):
     vote_tuple = (
         vote.congress, vote.session, vote.vote_number,

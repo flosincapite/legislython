@@ -2,8 +2,8 @@ import datetime
 import os
 from xml.etree import ElementTree
 
+from src import api
 from src import config
-from src.api import roll as roll_api
 from src import utils
 from src.objects import vote
 
@@ -50,6 +50,6 @@ def votes_for_range(
   last_congress = utils.congress_for_year(last_date.year + 1)
 
   # Retrieves votes.
-  for roll in roll_api.get_rolls(first_congress, last_congress, roll_dir):
+  for roll in api.rolls_for_range(first_congress, last_congress, roll_dir):
     for vote in _votes_for_roll(first_date, last_date, roll, vote_dir):
       yield vote
