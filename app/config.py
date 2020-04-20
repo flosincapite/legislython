@@ -2,12 +2,13 @@ import os
 import tempfile
 
 
-_tmp_dir = os.path.join(
+_tmp_dir = tempfile.mkdtemp()
+_data_dir = os.path.join(
     os.path.dirname(os.path.dirname(__file__)),
     'data')
-_roll_cache = os.path.join(_tmp_dir, 'rolls')
+_roll_cache = os.path.join(_data_dir, 'rolls')
 os.makedirs(_roll_cache, exist_ok=True)
-_vote_cache = os.path.join(_tmp_dir, 'votes')
+_vote_cache = os.path.join(_data_dir, 'votes')
 os.makedirs(_vote_cache, exist_ok=True)
 
 

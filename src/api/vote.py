@@ -1,5 +1,4 @@
 import datetime
-import logging
 import os
 from xml.etree import ElementTree
 
@@ -11,7 +10,6 @@ from src.objects import vote
 
 def _votes_for_roll(
     first_date, last_date, roll, cache_directory=None):
-  logging.info('Cache directory is', cache_directory)
   for the_vote in roll.votes:
     vote_date = datetime.datetime(
         year=int(roll.congress_year), month=the_vote.vote_month,
