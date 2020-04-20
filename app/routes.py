@@ -2,6 +2,7 @@ import csv
 import datetime
 import flask
 import io
+import tempfile
 
 from app import the_app
 from app import forms
@@ -19,21 +20,19 @@ def index():
     lastdate =  datetime.datetime.strptime(
         flask.request.form['lastdate'], '%Y%m%d')
 
-    with csv.StringIO() as string_buffer:
-      writer = csv.writer(string_buffer)
+    # TODO: flask.send_file can accept a BytesIO, but that doesn't work with
+    # uWSGI. Find a workaround. Writing a file here sucks.
+    _, fname = tempfile.mkstemp(dir=the_app.config['TEMP_DIR'])
+    with open(fname, 'w') as outp:
+      writer = csv.writer(outp)
       for row in generate_csv.csv_rows(
           firstdate, lastdate, the_app.config['ROLL_CACHE'],
           the_app.config['VOTE_CACHE']):
         writer.writerow(row)
-      
-      bytes_buffer = io.BytesIO()
-      bytes_buffer.write(string_buffer.getvalue().encode('utf8'))
-      bytes_buffer.seek(0)
-      return flask.send_file(
-          bytes_buffer,
-          as_attachment=True,
-          attachment_filename='senate_votes.csv',
-          mimetype='text/csv')
+
+    return flask.send_file(
+        fname, as_attachment=True, attachment_filename='senate_votes.csv',
+        mimetype='text/csv')
 
   else:
     return flask.render_template('index.html', form=form)
