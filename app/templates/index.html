@@ -1,5 +1,30 @@
 <html>
-  <head><title>quis custodiet ipsos/ custodes?</title></head>
+  <head>
+    <title>quis custodiet ipsos/ custodes?</title>
+    <script
+        src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"
+        integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I="
+        crossorigin="anonymous">
+    </script>
+    <script
+        src="//code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+        crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" charset="utf-8">
+      $(document).ready(function() {
+        namespace = '/get_csv';
+        var socket = io(namespace);
+        $('form#csv_for_dates').submit(function(event) {
+          socket.emit('csv_for_dates', {
+            firstdate: {{ form.firstdate.raw_data }},
+            lastdate: {{ form.lastdate.raw_data }}
+          });
+          return false;
+        });
+      });
+    </script>
+  </head>
   <body>
     {% with messages = get_flashed_messages() %}
     {% if messages %}
@@ -8,7 +33,7 @@
     {% endfor %}
     {% endif %}
     {% endwith %}
-    <form action="" method="post">
+    <form id="csv_for_dates" action="" method="post">
       {{ form.hidden_tag() }}
       <p>
         {{ form.firstdate.label }}

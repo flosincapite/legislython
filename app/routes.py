@@ -4,8 +4,9 @@ import flask
 import io
 import tempfile
 
-from app import the_app
 from app import forms
+from app import socketio
+from app import the_app
 from src import generate_csv
 
 
@@ -14,7 +15,7 @@ from src import generate_csv
 def index():
   form = forms.CsvForm()
 
-  if form.validate_on_submit():
+  if form.validate_on_submit() and False:
     firstdate =  datetime.datetime.strptime(
         flask.request.form['firstdate'], '%Y%m%d')
     lastdate =  datetime.datetime.strptime(
@@ -36,3 +37,9 @@ def index():
 
   else:
     return flask.render_template('index.html', form=form)
+
+
+@socketio.on('csv_for_dates', namespace='/get_csv')
+def get_csv(message):
+  the_app.logger.info(message)
+  # form_data = message['data']
